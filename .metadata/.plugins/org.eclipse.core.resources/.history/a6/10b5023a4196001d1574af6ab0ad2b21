@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 public class SignUP extends JFrame implements ActionListener {
 	JPanel p1;
-	JTextField t1, t2, t3, t4;// username, password , rewrite password , meter_no
+	JTextField tf1, tf2, tf3, tf4;// username, password , rewrite password , meter_no
 	Choice c1;
 	JButton b1, b2; // signup , cancel
 
@@ -29,9 +29,9 @@ public class SignUP extends JFrame implements ActionListener {
 		l1.setBounds(100, 50, 100, 20);
 		p1.add(l1);
 
-		t1 = new JTextField();
-		t1.setBounds(260, 50, 150, 20);
-		p1.add(t1);
+		tf1 = new JTextField();
+		tf1.setBounds(260, 50, 150, 20);
+		p1.add(tf1);
 
 		JLabel l2 = new JLabel("Name");
 		l1.setForeground(Color.DARK_GRAY);
@@ -39,9 +39,9 @@ public class SignUP extends JFrame implements ActionListener {
 		l1.setBounds(100, 90, 100, 20);
 		p1.add(l2);
 
-		t2 = new JTextField();
-		t2.setBounds(260, 90, 150, 20);
-		p1.add(t2);
+		tf2 = new JTextField();
+		tf2.setBounds(260, 90, 150, 20);
+		p1.add(tf2);
 
 		JLabel l3 = new JLabel("Password");
 		l1.setForeground(Color.DARK_GRAY);
@@ -49,9 +49,9 @@ public class SignUP extends JFrame implements ActionListener {
 		l1.setBounds(100, 130, 100, 20);
 		p1.add(l3);
 
-		t3 = new JTextField();
-		t3.setBounds(260, 130, 150, 20);
-		p1.add(t3);
+		tf3 = new JTextField();
+		tf3.setBounds(260, 130, 150, 20);
+		p1.add(tf3);
 
 		JLabel l4 = new JLabel("Create Account as");
 		l1.setForeground(Color.DARK_GRAY);
@@ -66,10 +66,10 @@ public class SignUP extends JFrame implements ActionListener {
 		l5.setVisible(false);
 		p1.add(l5);
 
-		t4 = new JTextField();
-		t4.setBounds(260, 210, 150, 20);
-		t4.setVisible(false);
-		p1.add(t4);
+		tf4 = new JTextField();
+		tf4.setBounds(260, 210, 150, 20);
+		tf4.setVisible(false);
+		p1.add(tf4);
 
 		c1 = new Choice();
 		c1.add("ADMIN");
@@ -82,10 +82,10 @@ public class SignUP extends JFrame implements ActionListener {
 				String usr = c1.getSelectedItem();
 				if (usr.equals("Customer")) {
 					l5.setVisible(true);
-					t4.setVisible(true);
+					tf4.setVisible(true);
 				} else {
 					l5.setVisible(false);
-					t4.setVisible(false);
+					tf4.setVisible(false);
 				}
 			}
 		});
@@ -116,11 +116,11 @@ public class SignUP extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getSource() == b1) {
-			String username = t1.getText();
-			String name = t2.getText();
-			String password = t3.getText();
+			String username = tf1.getText();
+			String name = tf2.getText();
+			String password = tf3.getText();
 			String user = c1.getSelectedItem();
-			String meter = t4.getText();
+			String meter = tf4.getText();
 			try {
 				conn c = new conn();
 				String str = null;
@@ -129,7 +129,7 @@ public class SignUP extends JFrame implements ActionListener {
 							+ "', '" + user + "')";
 				} else {
 					str = "update login set username = '" + username + "', name = '" + name + "', password = '"
-							+ password + "', user = '" + user + "' where meter_no = '" + t4.getText() + "'";
+							+ password + "', user = '" + user + "' where meter_no = '" + tf4.getText() + "'";
 				}
 
 				c.s.executeUpdate(str);

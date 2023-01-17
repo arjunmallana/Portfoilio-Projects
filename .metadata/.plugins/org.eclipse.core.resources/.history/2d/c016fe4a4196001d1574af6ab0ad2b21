@@ -129,7 +129,7 @@ public class SignUP extends JFrame implements ActionListener {
 							+ "', '" + user + "')";
 				} else {
 					str = "update login set username = '" + username + "', name = '" + name + "', password = '"
-							+ password + "', user = '" + user + "' where meter_no = '" + t4.getText() + "'";
+							+ password + "', user = '" + user + "' where meter_no = '" + tf4.getText() + "'";
 				}
 
 				c.s.executeUpdate(str);

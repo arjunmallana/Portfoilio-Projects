@@ -5,13 +5,13 @@ import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SignUP extends JFrame implements ActionListener {
+public class Signup2 extends JFrame implements ActionListener {
 	JPanel p1;
-	JTextField t1, t2, t3, t4;// username, password , rewrite password , meter_no
+	JTextField t1, t2, t3, t4;
 	Choice c1;
-	JButton b1, b2; // signup , cancel
+	JButton b1, b2;
 
-	SignUP() {
+	Signup2() {
 		setBounds(600, 250, 700, 400);
 
 		p1 = new JPanel();
@@ -34,9 +34,9 @@ public class SignUP extends JFrame implements ActionListener {
 		p1.add(t1);
 
 		JLabel l2 = new JLabel("Name");
-		l1.setForeground(Color.DARK_GRAY);
-		l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		l1.setBounds(100, 90, 100, 20);
+		l2.setForeground(Color.DARK_GRAY);
+		l2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		l2.setBounds(100, 90, 100, 20);
 		p1.add(l2);
 
 		t2 = new JTextField();
@@ -44,22 +44,22 @@ public class SignUP extends JFrame implements ActionListener {
 		p1.add(t2);
 
 		JLabel l3 = new JLabel("Password");
-		l1.setForeground(Color.DARK_GRAY);
-		l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		l1.setBounds(100, 130, 100, 20);
+		l3.setForeground(Color.DARK_GRAY);
+		l3.setFont(new Font("Tahoma", Font.BOLD, 14));
+		l3.setBounds(100, 130, 100, 20);
 		p1.add(l3);
 
 		t3 = new JTextField();
 		t3.setBounds(260, 130, 150, 20);
 		p1.add(t3);
 
-		JLabel l4 = new JLabel("Create Account as");
-		l1.setForeground(Color.DARK_GRAY);
-		l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		l1.setBounds(100, 170, 140, 20);
+		JLabel l4 = new JLabel("Create Account As");
+		l4.setForeground(Color.DARK_GRAY);
+		l4.setFont(new Font("Tahoma", Font.BOLD, 14));
+		l4.setBounds(100, 170, 140, 20);
 		p1.add(l4);
 
-		JLabel l5 = new JLabel("Meter No");
+		JLabel l5 = new JLabel("Meter Number");
 		l5.setForeground(Color.DARK_GRAY);
 		l5.setFont(new Font("Tahoma", Font.BOLD, 14));
 		l5.setBounds(100, 210, 100, 20);
@@ -72,15 +72,15 @@ public class SignUP extends JFrame implements ActionListener {
 		p1.add(t4);
 
 		c1 = new Choice();
-		c1.add("ADMIN");
+		c1.add("Admin");
 		c1.add("Customer");
 		c1.setBounds(260, 170, 150, 20);
 		p1.add(c1);
 
 		c1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent ae) {
-				String usr = c1.getSelectedItem();
-				if (usr.equals("Customer")) {
+				String user = c1.getSelectedItem();
+				if (user.equals("Customer")) {
 					l5.setVisible(true);
 					t4.setVisible(true);
 				} else {
@@ -95,7 +95,7 @@ public class SignUP extends JFrame implements ActionListener {
 		b1.setForeground(Color.WHITE);
 		b1.setBounds(140, 290, 120, 30);
 		b1.addActionListener(this);
-		add(b1);
+		p1.add(b1);
 
 		b2 = new JButton("Back");
 		b2.setBackground(Color.BLACK);
@@ -104,14 +104,13 @@ public class SignUP extends JFrame implements ActionListener {
 		b2.addActionListener(this);
 		p1.add(b2);
 
-		// ImageIcon i1 = new
-		// ImageIcon(ClassLoader.getSystemResource("Icons/signupImage.png"));
-		// Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
-		// ImageIcon i3 = new ImageIcon(i2);
+		ImageIcon i1 = new
+		 ImageIcon(ClassLoader.getSystemResource("Icons/signupImage.png"));
+		Image i2 = i1.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT);
+	 ImageIcon i3 = new ImageIcon(i2);
 		JLabel l6 = new JLabel();
 		l6.setBounds(450, 30, 250, 250);
 		p1.add(l6);
-
 	}
 
 	public void actionPerformed(ActionEvent ae) {
@@ -124,7 +123,7 @@ public class SignUP extends JFrame implements ActionListener {
 			try {
 				conn c = new conn();
 				String str = null;
-				if (user.equals("ADMIN")) {
+				if (user.equals("Admin")) {
 					str = "insert into login values('" + meter + "', '" + username + "', '" + name + "', '" + password
 							+ "', '" + user + "')";
 				} else {
@@ -137,6 +136,7 @@ public class SignUP extends JFrame implements ActionListener {
 				this.setVisible(false);
 				new Login().setVisible(true);
 			} catch (Exception e) {
+
 			}
 		} else if (ae.getSource() == b2) {
 			this.setVisible(false);
@@ -145,6 +145,6 @@ public class SignUP extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		new SignUP().setVisible(true);
+		new Signup2().setVisible(true);
 	}
 }
