@@ -1,0 +1,85 @@
+package EBS;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.*;
+
+
+
+public class Login extends JFrame implements ActionListener{
+
+	JButton b1,b2,b3;
+	JLabel l1,l2,l3,l4;
+	//Font not needed since no description 
+	JTextField t1; //Only for Username 
+	JPasswordField pf1;
+	JPanel jp1,jp2,jp3,jp4;
+	Choice c1;
+	
+	
+	
+	//need to check this 
+	Login(){
+		super("Login Page");
+		setLayout(null);
+		getContentPane().setBackground(Color.white);
+		
+		l1 = new JLabel("Username");
+		l1.setBounds(300, 20, 100, 20);
+		add(l1);
+		
+		l2 = new JLabel("Password");
+		l2.setBounds(300, 60, 100, 20);
+		add(l2);
+		
+		t1 = new JTextField(15);
+		t1.setBounds(400,20,150,20);
+		add(t1);
+		
+		pf1 = new JPasswordField(15);
+		pf1.setBounds(400, 60, 150, 20);
+		add(pf1);
+		
+		l4 = new JLabel("Logging in as");
+		l4.setBounds(300, 100, 100, 20);
+		add(l4);
+		
+		c1 = new Choice();
+		c1.add("Admin");
+		c1.add("Customer");
+		c1.setBounds(400,100,150,20);
+		add(c1);
+		
+		ImageIcon icl = new ImageIcon(ClassLoader.getSystemResource("Icons/login.png"));
+		
+		b1 = new JButton("Login");
+		add(b1);
+		b1.setBounds(600,20,40,20);
+		b1.addActionListener(this);
+		
+		b2 = new JButton("Exit");
+		add(b2);
+		b2.setBounds(600,60,80,20);
+		b2.addActionListener(this);
+		
+		
+		
+		
+		b3 = new JButton("SignUP");
+		add(b3);
+		b3.setBounds(600,100,80,20);
+		b3.addActionListener(this);
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+public static void main(String[] args) {
+	new Login().setVisible(true);
+}
+}

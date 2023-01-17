@@ -1,0 +1,9 @@
+package EBS;
+
+import java.sql.*;
+
+public class conn {
+	Connection con;
+	Statement s;
+	
+}
