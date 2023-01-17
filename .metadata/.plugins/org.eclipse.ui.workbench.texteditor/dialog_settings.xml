@@ -6,12 +6,17 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="connect"/>
+		<item key="selection" value="tf4"/>
 		<list key="findhistory">
+			<item value="tf4"/>
+			<item value="Times New Roman"/>
+			<item value="Admin"/>
 			<item value="connect"/>
 			<item value="table"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Tahoma"/>
+			<item value="ADMIN"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
